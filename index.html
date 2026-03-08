@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HK ETERNAL-BIO | Life Extension Empire</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --bio-green: #00ff88; 
+            --deep-forest: #020a05; 
+            --card-bg: rgba(10, 25, 15, 0.9);
+            --dna-blue: #00ccff;
+        }
+        body { 
+            background-color: var(--deep-forest); 
+            color: #ffffff; 
+            font-family: 'Noto Sans KR', sans-serif; 
+            margin: 0; 
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, #051a10 0%, #020a05 100%);
+            z-index: -1;
+        }
+        .neon-green { 
+            font-family: 'Orbitron', sans-serif; 
+            color: var(--bio-green); 
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.6); 
+        }
+        .lang-bar { 
+            position: sticky; 
+            top: 0; 
+            background: rgba(2, 10, 5, 0.95); 
+            padding: 20px; 
+            display: flex; 
+            gap: 12px; 
+            justify-content: center; 
+            z-index: 1000; 
+            border-bottom: 2px solid var(--bio-green);
+            backdrop-filter: blur(15px);
+        }
+        .lang-bar button { 
+            background: transparent; 
+            border: 1px solid #224433; 
+            color: #88aa99; 
+            padding: 10px 25px; 
+            cursor: pointer; 
+            border-radius: 30px; 
+            font-family: 'Orbitron', sans-serif; 
+            transition: 0.4s;
+            font-size: 0.8rem;
+        }
+        .lang-bar button:hover, .lang-bar button.active { 
+            border-color: var(--bio-green); 
+            color: white; 
+            box-shadow: 0 0 15px var(--bio-green);
+            background: rgba(0, 255, 136, 0.1);
+        }
+        header { 
+            padding: 180px 20px; 
+            text-align: center; 
+            background: linear-gradient(to bottom, #002211 0%, #020a05 100%);
+        }
+        h1 { font-size: 4.5rem; margin: 0; letter-spacing: 12px; text-transform: uppercase; }
+        .tagline { font-size: 1.8rem; color: #88aa99; margin-top: 40px; font-weight: 300; letter-spacing: 5px; }
+        .section { max-width: 1200px; margin: 100px auto; padding: 0 40px; }
+        .intro-box { 
+            text-align: center; 
+            font-size: 1.4rem; 
+            color: #ccddcc; 
+            margin-bottom: 120px; 
+            padding: 50px;
+            border-left: 8px solid var(--bio-green);
+            background: rgba(0, 255, 136, 0.03);
+            border-radius: 0 30px 30px 0;
+        }
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+            gap: 50px; 
+        }
+        .card { 
+            background: var(--card-bg); 
+            border-radius: 40px; 
+            padding: 60px; 
+            border: 1px solid #1a3322; 
+            transition: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); 
+        }
+        .card:hover { 
+            border-color: var(--bio-green); 
+            transform: translateY(-25px);
+            box-shadow: 0 40px 80px rgba(0, 255, 136, 0.2);
+        }
+        .card h2 { font-size: 2.2rem; margin-bottom: 30px; }
+        .card p { font-size: 1.15rem; color: #aabbcc; line-height: 2; }
+
+        .contact-area { 
+            background: #010502; 
+            padding: 180px 20px; 
+            text-align: center; 
+            border-top: 5px solid var(--bio-green);
+        }
+        .social-container { display: flex; justify-content: center; gap: 40px; margin: 80px 0; flex-wrap: wrap; }
+        .btn { 
+            text-decoration: none; 
+            color: #000; 
+            background: var(--bio-green); 
+            padding: 30px 100px; 
+            border-radius: 20px; 
+            font-size: 1.8rem; 
+            font-weight: bold; 
+            font-family: 'Orbitron', sans-serif;
+            transition: 0.4s;
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.4);
+        }
+        .btn:hover { background: #fff; color: var(--bio-green); transform: scale(1.15); }
+        
+        .email-display { 
+            font-size: 3rem; 
+            color: var(--bio-green); 
+            text-decoration: none; 
+            font-family: 'Orbitron', sans-serif;
+            border-bottom: 5px solid var(--bio-green);
+            transition: 0.3s;
+            padding-bottom: 10px;
+        }
+        .email-display:hover { color: #fff; border-color: #fff; }
+
+        footer { padding: 100px; text-align: center; color: #445544; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; border-top: 1px solid #112211; }
+    </style>
+</head>
+<body>
+
+<div class="lang-bar">
+    <button onclick="chLang('ko', this)" class="active">KOREAN</button>
+    <button onclick="chLang('en', this)">ENGLISH</button>
+    <button onclick="chLang('zh', this)">CHINESE</button>
+    <button onclick="chLang('ar', this)">ARABIC</button>
+    <button onclick="chLang('jp', this)">JAPANESE</button>
+    <button onclick="chLang('es', this)">SPANISH</button>
+</div>
+
+<header>
+    <h1 class="neon-green">HK ETERNAL-BIO</h1>
+    <p id="v-tag" class="tagline">"인류의 노화 정복과 불멸의 삶을 실현하다"</p>
+</header>
+
+<div class="section">
+    <div id="intro-c" class="intro-box">
+        HK ETERNAL-BIO는 생명 공학의 정점에 도전합니다. 유전자 편집, 나노 로봇, 인공 장기 기술을 통해 질병을 종식시키고 인류의 평균 수명을 획기적으로 연장하여, 죽음이 선택의 영역이 되는 불멸의 시대를 열어갑니다.
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <h2 id="t1" class="neon-green">GENE EDITING</h2>
+            <p id="d1">유전자 가위 기술을 통한 선천적 질병의 완벽한 제거. 세포 단위의 노화를 방지하고 손상된 DNA를 스스로 복구하는 차세대 유전자 최적화 솔루션을 제공합니다.</p>
+        </div>
+        <div class="card">
+            <h2 id="t2" class="neon-green">NANO MEDICINE</h2>
+            <p id="d2">혈관 속을 흐르는 지능형 나노 로봇 시스템. 실시간으로 암세포를 추적 파괴하고 바이러스를 차단하여, 병원에 가지 않아도 24시간 건강을 관리하는 초정밀 의료 시스템입니다.</p>
+        </div>
+        <div class="card">
+            <h2 id="t3" class="neon-green">ORGAN PRINTING</h2>
+            <p id="d3">3D 바이오 프린팅 기술로 제작되는 완벽한 맞춤형 인공 장기. 노화된 장기를 새것으로 교체하여 신체의 물리적 한계를 극복하고 영원한 젊음을 유지하게 합니다.</p>
+        </div>
+    </div>
+</div>
+
+<section class="contact-area">
+    <h2 class="neon-green" style="font-size: 4rem; margin-bottom: 60px;">ETERNAL LIFE NETWORK</h2>
+    <div class="social-container">
+        <a href="https://www.youtube.com/@Hyekong2025" target="_blank" class="btn">YOUTUBE</a>
+        <a href="https://www.tiktok.com/@hyekong2025" target="_blank" class="btn">TIKTOK</a>
+    </div>
+    <div style="margin-top: 120px;">
+        <p style="color: #445544; letter-spacing: 8px; margin-bottom: 30px;">GLOBAL BIO COMMUNICATION</p>
+        <a href="mailto:info@eternalbio.com" class="email-display">info@eternalbio.com</a>
+    </div>
+</section>
+
+<footer>
+    © 2026 HK ETERNAL-BIO | BIO DIVISION OF HK GROUP | FOUNDER & CHAIRMAN LEE JAE-WAN
+</footer>
+
+<script>
+    const data = {
+        ko: { v: "인류의 노화 정복과 불멸의 삶을 실현하다", i: "HK ETERNAL-BIO는 생명 공학의 정점에 도전합니다. 유전자 편집과 나노 로봇 기술로 질병을 종식시키고 불멸의 시대를 열어갑니다.", t: ["유전자 최적화", "지능형 나노 의료", "인공 장기 복제"], d: ["손상된 DNA를 복구하여 세포 단위의 노화를 방지합니다.", "혈관 속 나노 로봇이 실시간으로 질병을 추적하고 파괴합니다.", "3D 바이오 프린팅으로 장기를 교체하여 물리적 한계를 극복합니다."] },
+        en: { v: "Conquering Aging & Realizing Eternal Life", i: "HK ETERNAL-BIO challenges the pinnacle of biotechnology. We end diseases and open the era of immortality.", t: ["GENE EDITING", "NANO MEDICINE", "ORGAN PRINTING"], d: ["Repairing damaged DNA to prevent aging at the cellular level.", "Intelligent nanobots track and destroy diseases in real-time.", "Overcoming physical limits by replacing organs via 3D printing."] },
+        zh: { v: "征服衰老，实现永生", i: "HK ETERNAL-BIO 挑战生物技术的顶峰。我们通过基因编辑和纳米机器人技术终结疾病。", t: ["基因编辑", "纳米医疗", "器官复制"], d: ["修复受损DNA，从细胞层面防止衰老。", "血液中的纳米机器人实时追踪并摧毁疾病。", "通过3D生物打印更换器官，克服生理极限。"] },
+        ar: { v: "قهر الشيخوخة وتحقيق الحياة الأبدية", i: "تتحدى HK ETERNAL-BIO قمة التكنولوجيا الحيوية. نحن ننهي الأمراض ونفتح عصر الخلود.", t: ["تحرير الجينات", "طب النانو", "طباعة الأعضاء"], d: ["إصلاح الحمض النووي التالف لمنع الشيخوخة على المستوى الخلوي.", "روبوتات نانوية ذكية تتبع الأمراض وتدمرها في الوقت الحقيقي.", "تجاوز الحدود البدنية باستبدال الأعضاء عبر الطباعة ثلاثية الأبعاد."] },
+        jp: { v: "人類の老化征服と不老長寿の実現", i: "HK ETERNAL-BIOは生命工学の頂点に挑戦します。遺伝子編集とナノ技術で不滅の時代を切り拓きます。", t: ["遺伝子最適化", "インテ리ジェントナノ医療", "人工臓器複製"], d: ["損傷したDNAを修復し、細胞単位の老化を防止します。", "血管内のナノロボットがリアルタイムで病気を追跡・破壊します。", "3Dバイオプリンティングで臓器を交換し、肉体的限界を克服します。"] },
+        es: { v: "Conquistando el envejecimiento y la vida eterna", i: "HK ETERNAL-BIO desafía la cima de la biotecnología. Terminamos con las enfermedades mediante edición genética.", t: ["EDICIÓN GENÉTICA", "NANOMEDICINA", "IMPRESIÓN DE ÓRGANOS"], d: ["Reparación de ADN dañado para prevenir el envejecimiento celular.", "Nanobots inteligentes rastrean y destruyen enfermedades en tiempo real.", "Superación de límites físicos reemplazando órganos mediante impresión 3D."] }
+    };
+    function chLang(l, b) {
+        document.getElementById('v-tag').innerText = data[l].v;
+        document.getElementById('intro-c').innerText = data[l].i;
+        for(let i=1; i<=3; i++){
+            document.getElementById(`t${i}`).innerText = data[l].t[i-1];
+            document.getElementById(`d${i}`).innerText = data[l].d[i-1];
+        }
+        document.querySelectorAll('.lang-bar button').forEach(x => x.classList.remove('active'));
+        b.classList.add('active');
+    }
+</script>
+</body>
+</html>
